@@ -46,7 +46,16 @@ function Show(req,res){
 
 function Create(req,res) {
 
-    res.json("Creazione di un nuovo post");
+    console.log(req.body);
+
+    const newId = posts[posts.length -1].id + 1;
+    const newElement = {
+        id: newId,
+        ...req.body
+    }
+    posts.push(newElement);
+    
+    res.status(201).json(newElement);
 
 }
 
@@ -54,8 +63,25 @@ function Create(req,res) {
 function Update(req, res){
 
     const {id} = req.params;
+    
+    const element = posts.find(post => post.id == parseInt(req.params.id));
+    if(element){
 
-    res.json("Modifica del post con id: " + id);
+        for(let prop in req.body){
+            element[prop] = req.body[prop];
+            
+        }
+
+        res.status(200).json(element)
+    }else{
+
+        res.status(404).json({
+            success: false,
+            message: `Post con id ${req.params.id} non trovato`
+        })
+
+    }
+
 
 }
 
