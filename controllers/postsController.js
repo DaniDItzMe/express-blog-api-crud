@@ -64,7 +64,7 @@ function Update(req, res){
 
     const {id} = req.params;
     
-    const element = posts.find(post => post.id == parseInt(req.params.id));
+    const element = posts.find(post => post.id == parseInt(id));
     if(element){
 
         for(let prop in req.body){
@@ -77,7 +77,7 @@ function Update(req, res){
 
         res.status(404).json({
             success: false,
-            message: `Post con id ${req.params.id} non trovato`
+            message: `Post con id ${id} non trovato`
         })
 
     }
