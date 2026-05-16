@@ -88,8 +88,24 @@ function Update(req, res){
 function PartiallyUpdate(req,res){
 
     const {id} = req.params;
+    
+    const element = posts.find(post => post.id == parseInt(id));
+    if(element){
 
-    res.json("Modifica parziale del post con id: " + id);
+        for(let prop in req.body){
+            element[prop] = req.body[prop];
+            
+        }
+
+        res.status(200).json(element)
+    }else{
+
+        res.status(404).json({
+            success: false,
+            message: `Post con id ${id} non trovato`
+        })
+
+    }
 
 }
 
