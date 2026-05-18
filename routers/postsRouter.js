@@ -1,8 +1,7 @@
-const express = require("express");
-
+import express from "express"
 const router = express.Router();
 
-const {Index, Show, Create, Update, PartiallyUpdate, Destroy} = require("../controllers/postsController")
+import {Index, Show, Create, Update, PartiallyUpdate, Destroy} from "../controllers/postsController.js"
 
 //index
 router.get("/", Index)
@@ -22,4 +21,4 @@ router.patch("/:id", PartiallyUpdate)
 //Delete
 router.delete("/:id", Destroy)
 
-module.exports = router;
+export default router;

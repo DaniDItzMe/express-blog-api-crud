@@ -1,0 +1,10 @@
+.update-post:hover,
+.delete-post:hover {
+  transform: scale(220%) !important;
+  cursor: pointer;
+}
+
+.update-post,
+.delete-post {
+  transition: 0.3s ease;
+}

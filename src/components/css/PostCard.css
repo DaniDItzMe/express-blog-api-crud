@@ -1,0 +1,8 @@
+.custom-card:hover {
+  transform: scale(105%);
+  cursor: pointer;
+}
+
+.custom-card {
+  transition: 0.3s ease;
+}

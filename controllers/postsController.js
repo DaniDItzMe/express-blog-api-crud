@@ -1,7 +1,6 @@
-const posts = require("../data/posts")
+import posts from "../data/posts.js"
 
-
-function Index(req,res){
+export function Index(req,res){
 
     const {tag} = req.query;
     console.log(tag);
@@ -21,7 +20,7 @@ function Index(req,res){
 }
 
 
-function Show(req,res){
+export function Show(req,res){
 
     const {id} = req.params;
 
@@ -31,7 +30,7 @@ function Show(req,res){
 
     if(filteredPost.length>0){
 
-        res.json(filteredPost);
+        res.json(filteredPost[0]);
     }else{
 
         res.status(404).json({
@@ -44,7 +43,7 @@ function Show(req,res){
 
 }
 
-function Create(req,res) {
+export function Create(req,res) {
 
     console.log(req.body);
 
@@ -60,7 +59,7 @@ function Create(req,res) {
 }
 
 
-function Update(req, res){
+export function Update(req, res){
 
     const {id} = req.params;
     
@@ -85,7 +84,7 @@ function Update(req, res){
 
 }
 
-function PartiallyUpdate(req,res){
+export function PartiallyUpdate(req,res){
 
     const {id} = req.params;
     
@@ -109,7 +108,7 @@ function PartiallyUpdate(req,res){
 
 }
 
-function Destroy(req,res){
+export function Destroy(req,res){
 
     const {id} = req.params;
 
@@ -135,4 +134,3 @@ function Destroy(req,res){
 
 }
 
-module.exports = {Index, Show, Create, Update, PartiallyUpdate, Destroy}

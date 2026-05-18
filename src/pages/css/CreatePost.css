@@ -1,0 +1,9 @@
+.add-button {
+  transform: scale(200%);
+  transition: 0.3s ease;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  transform: scale(220%);
+}
