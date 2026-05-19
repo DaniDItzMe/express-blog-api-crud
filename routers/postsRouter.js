@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 const {Index, Show, Create, Update, PartiallyUpdate, Destroy} = require("../controllers/postsController")
@@ -21,5 +20,6 @@ router.patch("/:id", PartiallyUpdate)
 
 //Delete
 router.delete("/:id", Destroy)
+
 
 module.exports = router;
